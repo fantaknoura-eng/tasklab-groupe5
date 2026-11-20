@@ -20,3 +20,8 @@ Accès : http://127.0.0.1:8000/ ; admin : /admin/ (créer un superuser si besoin
 Voir le document TP associé. Ce starter est volontairement incomplet :
 pas de filtre de statut, peu de tests, pas de version de livraison.
 Ne jamais publier une clé SECRET_KEY de production ; DEBUG=False en production.
+##Contribution au projet
+
+Le projet TaskLab est réalisé en équipe. Chaque membre contribue au développement et à l'amélioration de l'application à travers une branche personnelle.
+
+Les modifications sont enregistrées avec Git et partagées sur GitHub afin de faciliter le suivi du travail collectif.
