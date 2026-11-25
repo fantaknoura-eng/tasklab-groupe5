@@ -1,11 +1,28 @@
 {% extends "base.html" %}
 {% block contenu %}
 <h1>Gestion des tâches</h1>
+<form method="get" class="task-filters">
+    <div class="filter-field">
+        <label for="statut">Statut</label>
+        <select name="statut" id="statut">
+            <option value="" {% if not statut_selectionne %}selected{% endif %}>Tous les statuts</option>
+            {% for code, libelle, selected in statuts %}
+            <option value="{{ code }}" {{ selected }}>{{ libelle }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <label class="priority-filter"><input type="checkbox" name="priorite" value="1" {{ priorite_1_checked }}> Priorité 1
+        uniquement</label>
+    <button type="submit">Filtrer</button>
+    <a href="{% url 'liste_taches' %}">Réinitialiser</a>
+</form>
 <ul>{% for tache in taches %}
-<li><strong>{{ tache.titre }}</strong> — {{ tache.get_statut_display }} — priorité {{ tache.priorite }}
-<p>{{ tache.description }}</p>
-<a href="{% url 'modifier_tache' tache.pk %}">Modifier</a>
-<form method="post" action="{% url 'supprimer_tache' tache.pk %}" style="display:inline">
-{% csrf_token %}<button type="submit">Supprimer</button></form></li>
-{% empty %}<li>Aucune tâche.</li>{% endfor %}</ul>
+    <li><strong>{{ tache.titre }}</strong> — {{ tache.get_statut_display }} — priorité {{ tache.priorite }}
+        <p>{{ tache.description }}</p>
+        <a href="{% url 'modifier_tache' tache.pk %}">Modifier</a>
+        <form method="post" action="{% url 'supprimer_tache' tache.pk %}" style="display:inline">
+            {% csrf_token %}<button type="submit">Supprimer</button></form>
+    </li>
+    {% empty %}<li>Aucune tâche.</li>{% endfor %}
+</ul>
 {% endblock %}

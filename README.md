@@ -46,6 +46,10 @@ Exécute les tests avec :
 python manage.py test
 ```
 
+## Filtres de tâches — groupe 5
+
+La liste peut être filtrée par statut avec `?statut=EN_COURS`. La variante du groupe 5 filtre les tâches de priorité 1 avec `?priorite=1`. Les deux filtres sont combinables, par exemple `?statut=EN_COURS&priorite=1`; le bouton « Réinitialiser » retire tous les filtres.
+
 ## Version
 
 La note de version de `v1.0.0` est disponible dans [CHANGELOG.md](CHANGELOG.md).
