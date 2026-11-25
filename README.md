@@ -1,37 +1,51 @@
-# TaskLab TWIN2 — Projet fil rouge
-Projet pédagogique Django pour les chapitres VIII à XII du Génie Logiciel.
+# TaskLab TWIN2 — Groupe 5
+
+Application Django de gestion de tâches, réalisée pour le TP fil rouge de Génie Logiciel.
+
+## Prérequis
+
+- Python 3.11 ou supérieur
+- Git
 
 ## Installation
+
 ```bash
-python -m venv .venv
-# Windows PowerShell : .venv\\Scripts\\Activate.ps1
-# Linux/macOS : source .venv/bin/activate
+git clone https://github.com/fantaknoura-eng/tasklab-groupe5.git
+cd tasklab-groupe5
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-python manage.py makemigrations taches
+cp .env.example .env
 python manage.py migrate
 python manage.py runserver
 ```
-Accès : http://127.0.0.1:8000/ ; admin : /admin/ (créer un superuser si besoin).
 
-## Tests
-`python manage.py test`
+Sous Windows PowerShell, active l’environnement avec `.venv\\Scripts\\Activate.ps1` et copie la configuration avec `Copy-Item .env.example .env`.
 
-## Travail à réaliser
-Voir le document TP associé. Ce starter est volontairement incomplet :
-pas de filtre de statut, peu de tests, pas de version de livraison.
-Ne jamais publier une clé SECRET_KEY de production ; DEBUG=False en production.
-# Application Web Django - Gestion de Tâches (TP Génie Logiciel)
+L’application est ensuite disponible sur http://127.0.0.1:8000/.
 
-Application web développée avec **Django** permettant la création, la consultation, la modification et la suppression de tâches dans le cadre du TP de Génie Logiciel.
+## Configuration
 
-## Prérequis
-* Python 3.10 ou supérieur
-* pip (gestionnaire de paquets Python)
-* Git
+Les paramètres locaux sont lus depuis `.env` à la racine du dépôt. `.env.example` est le modèle à copier; les valeurs locales et les secrets ne doivent pas être commités.
 
-## Installation et lancement en local
+| Variable | Description | Exemple local |
+| --- | --- | --- |
+| `DEBUG` | Active le mode debug Django | `True` |
+| `SECRET_KEY` | Clé secrète Django | Générer une valeur aléatoire pour chaque environnement |
+| `ALLOWED_HOSTS` | Hôtes autorisés, séparés par des virgules | `127.0.0.1,localhost` |
 
-1. **Cloner le dépôt :**
-   ```bash
-   git clone <URL_DU_DEPOT_GITHUB>
-   cd <NOM_DU_DOSSIER>
+`.env`, `.venv/` et `db.sqlite3` sont exclus par `.gitignore` : le premier contient une configuration locale potentiellement sensible, le deuxième contient les dépendances installées sur une machine et la base SQLite contient des données locales. Seul `.env.example`, sans secret réel, est versionné.
+
+## Migrations et tests
+
+Les migrations existantes sont versionnées. Pour initialiser la base, applique-les avec `python manage.py migrate`. Après une modification de modèle, crée une migration avec `python manage.py makemigrations taches`, puis vérifie-la avec `python manage.py makemigrations --check --dry-run`.
+
+Exécute les tests avec :
+
+```bash
+python manage.py test
+```
+
+## Version
+
+La note de version de `v1.0.0` est disponible dans [CHANGELOG.md](CHANGELOG.md).
