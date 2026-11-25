@@ -20,7 +20,7 @@
 
 - Issues de suivi assignées au responsable du dépôt : #8, #10, #11, #12, #13 et #14.
 - L’issue #8 est corrigée par la PR #9, mais reste ouverte dans GitHub et doit être clôturée manuellement.
-- Le tableau Trello demandé n’a pas encore été créé : la session Trello était déconnectée. À compléter après connexion.
+- Le tableau Trello [TaskLab Groupe 5 — TP Génie Logiciel](https://trello.com/b/cuS87Krg/tasklab-groupe-5-tp-g%C3%A9nie-logiciel) a été créé avec les listes « À faire », « En cours » et « Terminé ».
 
 ## Écarts et incidents
 
