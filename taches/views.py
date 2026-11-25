@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 from .models import Tache
@@ -10,7 +11,8 @@ def liste_taches(request):
 def creer_tache(request):
     form = TacheForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
-        form.save()
+        tache = form.save()
+        messages.success(request, f"La tâche « {tache.titre} » a été créée.")
         return redirect("liste_taches")
     return render(request, "taches/form.html", {"form": form, "titre": "Nouvelle tâche"})
 
@@ -18,12 +20,15 @@ def modifier_tache(request, pk):
     tache = get_object_or_404(Tache, pk=pk)
     form = TacheForm(request.POST or None, instance=tache)
     if request.method == "POST" and form.is_valid():
-        form.save()
+        tache = form.save()
+        messages.success(request, f"La tâche « {tache.titre} » a été modifiée.")
         return redirect("liste_taches")
     return render(request, "taches/form.html", {"form": form, "titre": "Modifier la tâche"})
 
 @require_POST
 def supprimer_tache(request, pk):
     tache = get_object_or_404(Tache, pk=pk)
+    titre = tache.titre
     tache.delete()
+    messages.success(request, f"La tâche « {titre} » a été supprimée.")
     return redirect("liste_taches")

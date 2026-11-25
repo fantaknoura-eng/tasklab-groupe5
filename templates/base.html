@@ -61,6 +61,18 @@
             padding: 0 24px
         }
 
+        .messages {
+            margin: 0 0 24px
+        }
+
+        .message {
+            margin: 0;
+            padding: 12px 16px;
+            border-left: 4px solid var(--green);
+            border-radius: 4px;
+            background: #dcefe5
+        }
+
         h1 {
             margin: 0 0 24px;
             font-size: 2rem;
@@ -185,7 +197,16 @@
 
 <body>
     <nav><a href="{% url 'liste_taches' %}">TaskLab</a><a href="{% url 'creer_tache' %}">Ajouter une tâche</a></nav>
-    <main>{% block contenu %}{% endblock %}</main>
+    <main>
+        {% if messages %}
+        <div class="messages" role="status" aria-live="polite">
+            {% for message in messages %}
+            <p class="message">{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% block contenu %}{% endblock %}
+    </main>
 </body>
 
 </html>
