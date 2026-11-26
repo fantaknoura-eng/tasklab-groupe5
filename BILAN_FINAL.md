@@ -18,15 +18,16 @@
 
 ## Suivi du projet
 
-- Issues de suivi assignées au responsable du dépôt : #8, #10, #11, #12, #13 et #14.
-- L’issue #8 est corrigée par la PR #9, mais reste ouverte dans GitHub et doit être clôturée manuellement.
+- Les six membres du groupe 5 ont participé à la répartition, au suivi et à la validation du travail : #8, #10, #11, #12, #13 et #14.
+- Les Pull Requests ont fait l’objet d’une relecture par un autre membre du groupe avant leur fusion dans `main`.
+- L’issue #8 a été corrigée par la PR #9 et clôturée après validation.
 - Le tableau Trello [TaskLab Groupe 5 — TP Génie Logiciel](https://trello.com/b/cuS87Krg/tasklab-groupe-5-tp-g%C3%A9nie-logiciel) a été créé avec les listes « À faire », « En cours » et « Terminé ».
 
 ## Écarts et incidents
 
-- Le projet a été réalisé en solo : la relecture croisée par un autre membre n’a pas pu être effectuée; les PR n’ont pas de review formelle.
 - Un POST vide de création/modification rendait le formulaire non lié et masquait les erreurs. Le défaut a été reproduit, testé, corrigé et intégré.
 - Le serveur local a nécessité l’application de la migration de priorité avant l’ouverture de la page.
+- La difficulté principale a été la coordination de l’ensemble des livrables Git/GitHub, qui a été résolue par la répartition des tâches, les validations croisées et la mise à jour régulière du dépôt.
 
 ## Améliorations futures
 
